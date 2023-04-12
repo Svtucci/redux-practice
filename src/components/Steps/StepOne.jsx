@@ -9,6 +9,7 @@ function StepOne() {
     const allPeople = useSelector(store => store.allPeople);
 
     const dispatch = useDispatch();
+    
     const handleChange = (event) => {
         const action = { type: 'SET_PERSON_NAME', payload: event.target.value };
         dispatch(action);

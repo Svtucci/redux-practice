@@ -25,11 +25,46 @@ const allPeople = (state = [], action) => {
     return state;
 }
 
+const activityType = (state='', action) => {
+    if (action.type === 'SET_ACTIVITY_TYPE') {
+        return action.payload; 
+    }
+    return state;
+}
+
+const allActivity = (state = [], action) => {
+    if (action.type === 'ADD_ACTIVITY_TYPE') {
+        return [...state, action.payload]
+    }
+    return state; 
+}
+
+const timeLength = (state = 0, action) => {
+    if (action.type === 'ADD_TIME') {
+        return action.payload;
+    }
+    return state; 
+}
+
+const allTimes = (state = [], action) => {
+    if (action.type === 'SET_ACTIVITY_TIME') {
+        return [...state, action.payload]
+    }
+    return state;
+}
+
+
+
+
 const storeInstance = createStore(
     combineReducers(
         {
             personName,
             allPeople,
+            activityType, 
+            allActivity, 
+            timeLength, 
+            allTimes
             // Other reducers go here
         }
     ),
